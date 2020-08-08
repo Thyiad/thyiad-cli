@@ -1,5 +1,5 @@
 {
-  "name": "@thyiad/util",
+  "name": "@thyiad/cli",
   "version": "1.0.0",
   "description": "一键式快速创建新项目😏",
   "bin": {
@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.0",
     "commander": "^6.0.0",
