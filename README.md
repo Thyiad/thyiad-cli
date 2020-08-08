@@ -32,6 +32,8 @@ npm install -g @thyiad/cli
 thyiad-cli -c projectName
 ```
 
+![](./preview.jpg)
+
 ### react-antd
 ![preview](https://gitee.com/Thyiad/react-ssr/raw/master/preview.jpg)
 
