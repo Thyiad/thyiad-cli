@@ -14,7 +14,7 @@ const cwd = process.cwd();
 const spinner = ora('');
 
 program
-    .version('0.0.1')
+    .version('1.0.0')
     .description('project boilerplate')
     .option('-c, --create [projectName]', 'create new project')
     .parse(process.argv);
@@ -47,7 +47,7 @@ if (projectName != null) {
         inquirer
             .prompt([
                 {
-                    name: 'pb',    // pb: project boilerplate
+                    name: 'pt',    // pt: project template
                     message: '请选择你要的模板：',
                     type: 'list',
                     choices: [
@@ -63,7 +63,7 @@ if (projectName != null) {
                 }
             ])
             .then(answers => {
-                let repo = ['react-antd', 'react-ssr-antd'].includes(answers.pb) ? 'react-ssr' : answers.pb;
+                let repo = ['react-antd', 'react-ssr-antd'].includes(answers.pt) ? 'react-ssr' : `pt-${answers.pt}`;
                 const tagetGit = `gitee.com:Thyiad/${repo}#master`
                 // clone 代码
                 spinner.start(`开始下载模板项目`)
@@ -73,7 +73,7 @@ if (projectName != null) {
                         console.log(err);
                     }else{
                         spinner.succeed('下载模板项目完成');
-                        if(answers.pb === 'react-antd'){
+                        if(answers.pt === 'react-antd'){
                             spinner.start('开始处理代码');
                             // 删除server代码
                             rimraf.sync(path.resolve(targetDir, 'src/server'))

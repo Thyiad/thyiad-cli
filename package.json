@@ -1,7 +1,7 @@
 {
-  "name": "thyiad-cli",
+  "name": "@thyiad/util",
   "version": "1.0.0",
-  "description": "",
+  "description": "一键式快速创建新项目😏",
   "bin": {
     "thyiad-cli": "./index.js"
   },
