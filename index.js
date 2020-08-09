@@ -94,6 +94,11 @@ if (projectName != null) {
                             delete pkg.scripts["dev:ssr"];
                             delete pkg.scripts["build:ssr"];
                             jsonfile.writeFileSync(pkgJsonPath, pkg, { spaces: "  " });
+                            // 修改tsconfig.json
+                            const tsJsonPath = path.resolve(targetDir, 'tsconfig.json');
+                            const ts = jsonfile.readFileSync(tsJsonPath);
+                            ts.compilerOptions.paths["@/*"] = ["*"];
+                            jsonfile.writeFileSync(tsJsonPath, ts, { spaces: "  " });
                             spinner.succeed('处理代码成功')
                         }
                     }
