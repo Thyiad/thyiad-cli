@@ -67,13 +67,13 @@ if (projectName != null) {
                 const tagetGit = `gitee.com:Thyiad/${repo}#master`
                 // clone 代码
                 spinner.start(`开始下载模板项目`)
-                download(tagetGit, projectName, {clone: true}, (err)=>{
-                    if(err){
+                download(tagetGit, projectName, { clone: true }, (err) => {
+                    if (err) {
                         spinner.fail('下载模板项目失败');
                         console.log(err);
-                    }else{
+                    } else {
                         spinner.succeed('下载模板项目完成');
-                        if(answers.pt === 'react-antd'){
+                        if (answers.pt === 'react-antd') {
                             spinner.start('开始处理代码');
                             // 删除server代码
                             rimraf.sync(path.resolve(targetDir, 'src/server'))
@@ -89,10 +89,36 @@ if (projectName != null) {
                             const pkg = jsonfile.readFileSync(pkgJsonPath);
                             pkg.scripts["dev"] = "node webpack/dev.js spa";
                             pkg.scripts["build"] = "node webpack/build.js spa";
-                            delete pkg.scripts["dev:spa"];
-                            delete pkg.scripts["build:spa"];
-                            delete pkg.scripts["dev:ssr"];
-                            delete pkg.scripts["build:ssr"];
+                            // 删除script
+                            [
+                                "dev:spa",
+                                "dev:ssr",
+                                "build:spa",
+                                "build:ssr"
+                            ].forEach(item=>{
+                                delete pkg.scripts[item];
+                            });
+                            // 删除dependencies
+                            [
+                                "@loadable/server",
+                                "art-template",
+                                "koa",
+                                "koa-art-template",
+                                "koa-bodyparser",
+                                "koa-static"
+                            ].forEach(item=>{
+                                delete pkg.dependencies[item];
+                            });
+                            // 删除devDependencies
+                            [
+                                "@types/koa", 
+                                "@types/koa-bodyparser", 
+                                "@types/koa-static", 
+                                "@types/koa__router", 
+                                "@types/loadable__server"
+                            ].forEach(item=>{
+                                delete pkg.devDependencies[item];
+                            })
                             jsonfile.writeFileSync(pkgJsonPath, pkg, { spaces: "  " });
                             // 修改tsconfig.json
                             const tsJsonPath = path.resolve(targetDir, 'tsconfig.json');
