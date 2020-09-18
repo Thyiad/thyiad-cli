@@ -34,7 +34,7 @@ thyiad-cli -c projectName
 
 ![](./preview.jpg)
 
-> 如果出现代码下载失败，可以自行前往gitee.com下载，react-antd和react-ssr-antd为https://gitee.com/thyiad/react-ssr，其他的项目名均为pt-【name】
+> 如果出现代码下载失败，可以自行前往gitee.com下载，react-antd和react-ssr-antd为 https://gitee.com/thyiad/react-ssr ，其他的项目名均为pt-【name】
 > 当时为了下载速度，代码存放在gitee上，后面再迁移到github吧
 
 ### react-antd
