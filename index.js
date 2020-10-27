@@ -123,9 +123,22 @@ if (projectName != null) {
                             // 修改tsconfig.json
                             const tsJsonPath = path.resolve(targetDir, 'tsconfig.json');
                             const ts = jsonfile.readFileSync(tsJsonPath);
+                            ts.compilerOptions.paths["@client/*"] = ["*"];
                             ts.compilerOptions.paths["@/*"] = ["*"];
                             jsonfile.writeFileSync(tsJsonPath, ts, { spaces: "  " });
-                            spinner.succeed('处理代码成功')
+                            // 修改create-config.js
+                            const webpackConfPath = path.resolve(targetDir, 'webpack/create-config.js');
+                            const webpackConf = fs.readFileSync(webpackConfPath).toString();
+                            const spaWebpackConf = webpackConf
+                                .replace(`'@client': path.resolve(cwd, 'src/client'),`, `'@client': path.resolve(cwd, 'src'),`)
+                                .replace(`'@': path.resolve(cwd, \`src\${spaClientFolder}\`),`, `'@': path.resolve(cwd, 'src'),`);
+                            fs.writeFileSync(webpackConfPath, spaWebpackConf);
+                            // 修改env-config.js
+                            const envConfPath = path.resolve(targetDir, 'webpack/env-config.js');
+                            const envConf = fs.readFileSync(envConfPath).toString();
+                            const spaEnvConf = envConf.replace(`sysType: 'ssr',`, `sysType: 'spa',`);
+                            fs.writeFileSync(envConfPath, spaEnvConf);
+                            spinner.succeed('处理代码成功');
                         }
                     }
                 })
