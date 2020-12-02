@@ -42,6 +42,15 @@ if (projectName != null) {
         } else {
             fs.mkdirSync(targetDir)
         }
+        const pjGitDic = {
+            'react-antd-spa': 'gitee.com:Thyiad/react-ssr#master',
+            'react-antd-ssr': 'gitee.com:Thyiad/react-ssr#master',
+            'react-cra-spa': 'gitee.com:Thyiad/pt-react-cra#master',
+            'react-antd-pro-v4': 'gitee.com:Thyiad/pt-antd-pro-v4#master',
+            'react-antd-pro-v2': 'gitee.com:Thyiad/pt-antd-pro-v2#master',
+            'vue-material': 'gitee.com:Thyiad/pt-vue-material#master',
+            'vue-element': 'gitee.com:Thyiad/pt-vue-element#master',
+        }
 
         // 选择模板
         inquirer
@@ -50,21 +59,11 @@ if (projectName != null) {
                     name: 'pt',    // pt: project template
                     message: '请选择你要的模板：',
                     type: 'list',
-                    choices: [
-                        { name: 'react-antd' },
-                        { name: 'react-ssr-antd' },
-                        { name: 'react-antd-pro-v4' },
-                        { name: 'react-antd-pro-v2' },
-                        { name: 'vue-material' },
-                        { name: 'vue-element' },
-                        { name: 'koa-mongo' },
-                        { name: 'net-core-webapi' }
-                    ]
+                    choices: Object.keys(pjGitDic).map(item=>({name: item}))
                 }
             ])
             .then(answers => {
-                let repo = ['react-antd', 'react-ssr-antd'].includes(answers.pt) ? 'react-ssr' : `pt-${answers.pt}`;
-                const tagetGit = `gitee.com:Thyiad/${repo}#master`
+                const tagetGit = pjGitDic[answers.pt]
                 // clone 代码
                 spinner.start(`开始下载模板项目`)
                 download(tagetGit, projectName, { clone: true }, (err) => {
@@ -73,8 +72,23 @@ if (projectName != null) {
                         console.log(err);
                     } else {
                         spinner.succeed('下载模板项目完成');
-                        if (answers.pt === 'react-antd') {
-                            spinner.start('开始处理代码');
+                        spinner.start('开始处理代码');
+                        if(answers.pt === 'react-antd-ssr'){
+                            // 修改package.json
+                            const pkgJsonPath = path.resolve(targetDir, 'package.json');
+                            const pkg = jsonfile.readFileSync(pkgJsonPath);
+                            pkg.scripts["dev"] = "node webpack/dev.js ssr";
+                            pkg.scripts["build"] = "node webpack/build.js ssr";
+                            [
+                                "dev:spa",
+                                "dev:ssr",
+                                "build:spa",
+                                "build:ssr"
+                            ].forEach(item=>{
+                                delete pkg.scripts[item];
+                            });
+                            jsonfile.writeFileSync(pkgJsonPath, pkg, { spaces: "  " });
+                        } else if (answers.pt === 'react-antd-spa') {
                             // 删除server代码
                             rimraf.sync(path.resolve(targetDir, 'src/server'))
                             // 挪移client、global.d.ts到src平级
@@ -138,8 +152,8 @@ if (projectName != null) {
                             const envConf = fs.readFileSync(envConfPath).toString();
                             const spaEnvConf = envConf.replace(`sysType: 'ssr',`, `sysType: 'spa',`);
                             fs.writeFileSync(envConfPath, spaEnvConf);
-                            spinner.succeed('处理代码成功');
                         }
+                        spinner.succeed('处理代码成功');
                     }
                 })
             })
