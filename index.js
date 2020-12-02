@@ -14,7 +14,7 @@ const cwd = process.cwd();
 const spinner = ora('');
 
 program
-    .version('1.0.0')
+    .version('1.2.1')
     .description('project boilerplate')
     .option('-c, --create [projectName]', 'create new project')
     .parse(process.argv);
