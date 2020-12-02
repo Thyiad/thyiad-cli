@@ -45,7 +45,7 @@ if (projectName != null) {
         const pjGitDic = {
             'react-antd-spa': 'gitee.com:Thyiad/react-ssr#master',
             'react-antd-ssr': 'gitee.com:Thyiad/react-ssr#master',
-            'react-cra-spa': 'gitee.com:Thyiad/pt-react-cra#master',
+            'react-cra-spa': 'gitee.com:Thyiad/react-project#master',
             'react-antd-pro-v4': 'gitee.com:Thyiad/pt-antd-pro-v4#master',
             'react-antd-pro-v2': 'gitee.com:Thyiad/pt-antd-pro-v2#master',
             'vue-material': 'gitee.com:Thyiad/pt-vue-material#master',
