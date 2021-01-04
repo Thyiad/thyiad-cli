@@ -50,6 +50,8 @@ if (projectName != null) {
             'react-antd-pro-v2': 'gitee.com:Thyiad/pt-antd-pro-v2#master',
             'vue-material': 'gitee.com:Thyiad/pt-vue-material#master',
             'vue-element': 'gitee.com:Thyiad/pt-vue-element#master',
+            'koa-mongo': 'gitee.com:Thyiad/pt-koa-mongo#master',
+            'net-core-webapi': 'gitee.com:Thyiad/pt-net-core-webapi#master',
         }
 
         // 选择模板
