@@ -4,6 +4,10 @@
 
 目前提供以下模板：
 
+- vite-antd
+    > react+useReducer+antd，基于vite的ssr暂未添加
+- vite-zarm
+    > react+useReducer+zarm，基于vite的ssr暂未添加
 - react-antd
     > 从零配置的ts+react+react-router+antd+hooks（context+useReducer代替了redux）
 - react-ssr-antd
