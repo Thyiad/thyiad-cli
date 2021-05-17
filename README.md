@@ -4,6 +4,8 @@
 
 目前提供以下模板：
 
+- ts-lib
+    > ts开发npm包
 - vite-antd
     > react+useReducer+antd，基于vite的ssr暂未添加
 - vite-zarm

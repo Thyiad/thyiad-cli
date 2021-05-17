@@ -43,6 +43,7 @@ if (projectName != null) {
             fs.mkdirSync(targetDir)
         }
         const pjGitDic = {
+            'ts-lib': 'gitee.com:Thyiad/pt-ts-lib#master',
             'vite-antd-spa': 'gitee.com:Thyiad/pt-vite#master',
             'vite-zarm-spa': 'gitee.com:Thyiad/pt-vite#mobile',
             'react-antd-spa': 'gitee.com:Thyiad/react-ssr#master',
