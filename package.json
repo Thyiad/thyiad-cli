@@ -8,7 +8,7 @@
   "main": "./index.js",
   "scripts": {
     "start": "node ./index.js",
-    "publish": "npm publish --access public",
+    "pub": "npm publish --access public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
