@@ -56,14 +56,14 @@ thyiad-cli -c projectName
 ![](./preview.jpg)
 
 > 当时为了下载速度，代码存放在gitee上，需要先配置好 gitee 的 ssh 才能正常下载
-> 如果出现代码下载失败，可以自行前往gitee.com下载，项目名均为pt-【name】
+> 如果出现代码下载失败，可以自行前往gitee.com下载，项目名均为pt-【name】，例如： https://gitee.com/Thyiad/pt-ui-lib
 > react-antd和react-ssr-antd在github上也有仓库，地址为 https://github.com/thyiad/react-ssr
 
 ### react-antd
 ![preview](https://gitee.com/Thyiad/react-ssr/raw/master/preview.jpg)
 
 ### react-ssr-antd
-同 react-ant
+同 react-antd
 
 ### react-antd-pro-v4
 ![preview](https://gitee.com/Thyiad/pt-react-antd-pro-v4/raw/master/preview.jpg)
