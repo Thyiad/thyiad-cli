@@ -2,6 +2,10 @@
 
 一键快速创建新项目😏
 
+- 选择困难症救星
+- 所有项目都可以直接run起来预览
+    > 使用了自建的在线mock：https://easymock.thyiad.top
+
 目前提供以下模板：
 > 代码规范都基于 husky + eslint + prettier + pretty-quick + commitlint
 
@@ -10,7 +14,7 @@
 - ts-lib
     > typescript 开发工具库
     > 不使用 webpack 等构建工具
-- vite-antd、vite-zarm
+- vite-antd-spa、vite-zarm-spa
     > 基于 vite 的基础仓库
     > react + typescript + hooks（context+useReducer代替了redux）
     > antd和zarm分别适用pc、mobile
