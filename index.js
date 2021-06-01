@@ -43,6 +43,7 @@ if (projectName != null) {
             fs.mkdirSync(targetDir)
         }
         const pjGitDic = {
+            'react-ui-lib': 'gitee.com:Thyiad/pt-ui-lib#master',
             'ts-lib': 'gitee.com:Thyiad/pt-ts-lib#master',
             'vite-antd-spa': 'gitee.com:Thyiad/pt-vite#master',
             'vite-zarm-spa': 'gitee.com:Thyiad/pt-vite#mobile',
@@ -53,6 +54,7 @@ if (projectName != null) {
             'react-antd-pro-v2': 'gitee.com:Thyiad/pt-antd-pro-v2#master',
             'vue-material': 'gitee.com:Thyiad/pt-vue-material#master',
             'vue-element': 'gitee.com:Thyiad/pt-vue-element#master',
+            'gin-mongo': 'gitee.com:Thyiad/pt-gin-mongo#master',
             'koa-mongo': 'gitee.com:Thyiad/pt-koa-mongo#master',
             'net-core-webapi': 'gitee.com:Thyiad/pt-net-core-webapi#master',
         }
