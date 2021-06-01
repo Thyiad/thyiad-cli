@@ -75,7 +75,7 @@ if (projectName != null) {
                 spinner.start(`开始下载模板项目`)
                 download(tagetGit, projectName, { clone: true }, (err) => {
                     if (err) {
-                        spinner.fail('下载模板项目失败');
+                        spinner.fail('下载模板项目失败，请确定已配置好gitee的ssh');
                         console.log(err);
                     } else {
                         spinner.succeed('下载模板项目完成');
