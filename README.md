@@ -92,3 +92,8 @@ thyiad-cli -c projectName
 ### vue-element
 ![login](https://gitee.com/Thyiad/pt-vue-element/raw/master/preview-login.jpg)
 ![preview](https://gitee.com/Thyiad/pt-vue-element/raw/master/preview.jpg)
+
+### todo
+- [ ] 添加到 npm init 模板
+    > npm init @thyiad/app -> npx @thyiad/create-app
+    > bin: { "create-app": "index.js" }
