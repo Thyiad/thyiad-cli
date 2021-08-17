@@ -10,12 +10,12 @@
 > 代码规范都基于 husky + eslint + prettier + pretty-quick + commitlint
 
 ### react项目
-- react-antd、react-ssr-antd
+- react-antd、react-antd-ssr
     - 基于 webpack 从零配置的基础仓库
     - 分别是spa、ssr
     - react + typescript+react-router+antd+hooks（context+useReducer代替了redux）
     - 代码地址：[https://github.com/Thyiad/react-ssr](https://github.com/thyiad/react-ssr)
-- vite-antd-spa、vite-zarm-spa
+- react-vite-antd-spa、react-vite-zarm-spa
     - 基于 vite 的基础仓库
     - react + typescript + hooks（context+useReducer代替了redux）
     - antd和zarm分别适用pc、mobile
@@ -28,6 +28,10 @@
     - 代码地址：https://gitee.com/Thyiad/pt-react-antd-pro-v4
 
 ### vue项目
+- vue3-vite-ele-spa
+    - ts+vue3+vite+vuex+vue-router+element-plus
+- vue3-vite-vant-spa
+    - ts+vue3+vite+vuex+vue-router+vant
 - vue-material
     - 基于vue cli 3.0
     - js+vue+vue-router+vuex+vue-material

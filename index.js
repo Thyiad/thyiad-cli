@@ -14,7 +14,7 @@ const cwd = process.cwd();
 const spinner = ora('');
 
 program
-    .version('1.2.1')
+    .version('1.2.7')
     .description('project boilerplate')
     .option('-c, --create [projectName]', 'create new project')
     .parse(process.argv);
@@ -45,8 +45,10 @@ if (projectName != null) {
         const pjGitDic = {
             'react-ui-lib': 'gitee.com:Thyiad/pt-ui-lib#master',
             'ts-lib': 'gitee.com:Thyiad/pt-ts-lib#master',
-            'vite-antd-spa': 'gitee.com:Thyiad/pt-vite#master',
-            'vite-zarm-spa': 'gitee.com:Thyiad/pt-vite#mobile',
+            'vue3-vite-ele-spa': 'gitee.com:Thyiad/pt-vue3-vite-ele#master',
+            'vue3-vite-vant-spa': 'gitee.com:Thyiad/vue3-vite-vant#master',
+            'react-vite-antd-spa': 'gitee.com:Thyiad/pt-vite#master',
+            'react-vite-zarm-spa': 'gitee.com:Thyiad/pt-vite#mobile',
             'react-antd-spa': 'gitee.com:Thyiad/react-ssr#master',
             'react-antd-ssr': 'gitee.com:Thyiad/react-ssr#master',
             'react-cra-spa': 'gitee.com:Thyiad/react-project#master',
