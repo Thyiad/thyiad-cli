@@ -46,7 +46,7 @@ if (projectName != null) {
             'react-ui-lib': 'gitee.com:Thyiad/pt-ui-lib#master',
             'ts-lib': 'gitee.com:Thyiad/pt-ts-lib#master',
             'vue3-vite-ele-spa': 'gitee.com:Thyiad/pt-vue3-vite-ele#master',
-            'vue3-vite-vant-spa': 'gitee.com:Thyiad/vue3-vite-vant#master',
+            'vue3-vite-vant-spa': 'gitee.com:Thyiad/pt-vue3-vite-vant#master',
             'react-vite-antd-spa': 'gitee.com:Thyiad/pt-vite#master',
             'react-vite-zarm-spa': 'gitee.com:Thyiad/pt-vite#mobile',
             'react-antd-spa': 'gitee.com:Thyiad/react-ssr#master',
