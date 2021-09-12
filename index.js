@@ -49,8 +49,10 @@ if (projectName != null) {
             'vue3-vite-vant-spa': 'gitee.com:Thyiad/pt-vue3-vite-vant#master',
             'react-vite-antd-spa': 'gitee.com:Thyiad/pt-vite#master',
             'react-vite-zarm-spa': 'gitee.com:Thyiad/pt-vite#mobile',
-            'react-antd-spa': 'gitee.com:Thyiad/react-ssr#master',
             'react-antd-ssr': 'gitee.com:Thyiad/react-ssr#master',
+            'react-antd-spa': 'gitee.com:Thyiad/react-ssr#master',
+            'react-zarm-ssr': 'gitee.com:Thyiad/react-ssr#mobile-init',
+            'react-zarm-spa': 'gitee.com:Thyiad/react-ssr#mobile-init',
             'react-cra-spa': 'gitee.com:Thyiad/react-project#master',
             'react-antd-pro-v4': 'gitee.com:Thyiad/pt-antd-pro-v4#master',
             'react-antd-pro-v2': 'gitee.com:Thyiad/pt-antd-pro-v2#master',
@@ -82,7 +84,7 @@ if (projectName != null) {
                     } else {
                         spinner.succeed('下载模板项目完成');
                         spinner.start('开始处理代码');
-                        if(answers.pt === 'react-antd-ssr'){
+                        if(['react-antd-ssr', 'react-zarm-ssr'].includes(answers.pt)){
                             // 修改package.json
                             const pkgJsonPath = path.resolve(targetDir, 'package.json');
                             const pkg = jsonfile.readFileSync(pkgJsonPath);
@@ -97,7 +99,7 @@ if (projectName != null) {
                                 delete pkg.scripts[item];
                             });
                             jsonfile.writeFileSync(pkgJsonPath, pkg, { spaces: "  " });
-                        } else if (answers.pt === 'react-antd-spa') {
+                        } else if (['react-antd-spa', 'react-zarm-spa'].includes(answers.pt)) {
                             // 删除server代码
                             rimraf.sync(path.resolve(targetDir, 'src/server'))
                             // 挪移client、global.d.ts到src平级
