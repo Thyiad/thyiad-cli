@@ -130,7 +130,8 @@ if (projectName != null) {
                                 "koa",
                                 "koa-art-template",
                                 "koa-bodyparser",
-                                "koa-static"
+                                "koa-static",
+                                "@koa/router"
                             ].forEach(item=>{
                                 delete pkg.dependencies[item];
                             });
