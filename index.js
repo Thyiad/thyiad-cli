@@ -165,6 +165,11 @@ if (projectName != null) {
                             const spaEnvConf = envConf.replace(`sysType: 'ssr',`, `sysType: 'spa',`);
                             fs.writeFileSync(envConfPath, spaEnvConf);
                         }
+                        // 追加.npmrc文件
+                        const npmrcPath = path.resolve(targetDir, '.npmrc');
+                        if(!fs.existsSync(npmrcPath)){
+                            fs.writeFileSync(npmrcPath, 'registry=https://registry.npmmirror.com/')
+                        }
                         spinner.succeed('处理代码成功');
                     }
                 })
